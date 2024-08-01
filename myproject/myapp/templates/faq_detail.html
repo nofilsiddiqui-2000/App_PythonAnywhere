@@ -1,0 +1,10 @@
+<!-- myapp/templates/faq_detail.html -->
+{% extends 'base.html' %}
+
+{% block title %}FAQ Detail{% endblock %}
+
+{% block content %}
+    <h1>{{ faq.question }}</h1>
+    <p>{{ faq.answer }}</p>
+    <p>Submitted by: {{ faq.submitted_by.username }}</p>
+{% endblock %}

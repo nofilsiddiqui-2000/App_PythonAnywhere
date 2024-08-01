@@ -1,0 +1,13 @@
+<!-- myapp/templates/add_event.html -->
+{% extends 'base.html' %}
+
+{% block title %}Add Event - Concordia University{% endblock %}
+
+{% block content %}
+<h1>Add Event</h1>
+<form method="POST">
+    {% csrf_token %}
+    {{ form.as_p }}
+    <button type="submit" class="btn btn-primary">Add Event</button>
+</form>
+{% endblock %}

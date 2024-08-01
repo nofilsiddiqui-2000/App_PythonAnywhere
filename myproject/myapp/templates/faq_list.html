@@ -1,0 +1,44 @@
+<!-- myapp/templates/faq_list.html -->
+{% extends 'base.html' %}
+
+{% block title %}FAQ - Concordia University{% endblock %}
+
+{% block content %}
+<h1>Frequently Asked Questions</h1>
+
+<!-- Search Form -->
+<form method="get" action="{% url 'faq_list' %}">
+    {{ search_form.query.label_tag }} {{ search_form.query }}
+    <button type="submit" class="btn btn-primary">Search</button>
+</form>
+<br>
+
+<!-- New Question Form -->
+<h2>Submit a New Question</h2>
+<form method="post" action="{% url 'faq_list' %}">
+    {% csrf_token %}
+    {{ form.as_p }}
+    <button type="submit" class="btn btn-primary">Submit</button>
+</form>
+<br>
+
+<!-- FAQ List -->
+<div class="accordion" id="accordionExample">
+    {% for faq in faqs %}
+        <div class="card">
+            <div class="card-header" id="heading{{ forloop.counter }}">
+                <h2 class="mb-0">
+                    <button class="btn btn-link text-left" type="button" data-toggle="collapse" data-target="#collapse{{ forloop.counter }}" aria-expanded="true" aria-controls="collapse{{ forloop.counter }}">
+                        {{ faq.question }}
+                    </button>
+                </h2>
+            </div>
+            <div id="collapse{{ forloop.counter }}" class="collapse" aria-labelledby="heading{{ forloop.counter }}" data-parent="#accordionExample">
+                <div class="card-body">
+                    {{ faq.answer }}
+                </div>
+            </div>
+        </div>
+    {% endfor %}
+</div>
+{% endblock %}

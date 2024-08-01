@@ -1,0 +1,8 @@
+/* myapp/static/myapp/styles.css */
+.navbar-dark .navbar-nav .nav-link {
+    color: black !important;
+}
+
+.navbar-dark .navbar-brand {
+    color: black !important;
+}

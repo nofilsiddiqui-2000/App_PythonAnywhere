@@ -1,0 +1,28 @@
+<!-- myapp/templates/user_list.html -->
+{% extends 'base.html' %}
+
+{% block title %}User List - Concordia University{% endblock %}
+
+{% block content %}
+<h1>User List</h1>
+<table class="table table-striped">
+    <thead>
+        <tr>
+            <th>Username</th>
+            <th>Email</th>
+            <th>Faculty of Interest</th>
+            <th>Program of Interest</th>
+        </tr>
+    </thead>
+    <tbody>
+        {% for user in users %}
+            <tr>
+                <td>{{ user.username }}</td>
+                <td>{{ user.email }}</td>
+                <td>{{ user.userprofile.faculty_of_interest }}</td>
+                <td>{{ user.userprofile.program_of_interest }}</td>
+            </tr>
+        {% endfor %}
+    </tbody>
+</table>
+{% endblock %}

@@ -1,0 +1,9 @@
+{% extends 'base.html' %}
+
+{% block title %}Home - Concordia University{% endblock %}
+
+{% block content %}
+<h1>Welcome to Concordia University</h1>
+<p>This is the home page.</p>
+<a href="{% url 'faq_list' %}" class="btn btn-primary">Go to FAQ</a>
+{% endblock %}

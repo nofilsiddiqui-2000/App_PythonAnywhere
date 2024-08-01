@@ -1,0 +1,19 @@
+<!-- myapp/templates/event_list.html -->
+{% extends 'base.html' %}
+
+{% block title %}Upcoming Events - Concordia University{% endblock %}
+
+{% block content %}
+<h1>Upcoming Events</h1>
+<ul class="list-group">
+    {% for event in events %}
+        <li class="list-group-item">
+            <h5>{{ event.title }}</h5>
+            <p>{{ event.description }}</p>
+            <p><strong>Date:</strong> {{ event.date }}</p>
+            <p><strong>Time:</strong> {{ event.time }}</p>
+            <p><strong>Location:</strong> {{ event.location }}</p>
+        </li>
+    {% endfor %}
+</ul>
+{% endblock %}
